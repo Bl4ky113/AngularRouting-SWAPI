@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --sw_yellow: #FFE81F;
+  --sw_black: #000000;
+
+  --font_white: #f8f8f8;
+  --font_black: #0f0f0f;
+  --font_yellow: #918408;
+
+  --bg_white: #e8e8e8;
+  --bg_grey: #909090;
+  --bg_black: #090909;
+}
+
+
+// Reset CSS
+
+* { margin: 0; padding: 0; }

@@ -1,0 +1,11 @@
+
+
+@media screen and (min-width: 770px) {
+  .wrapper {
+    grid-template-columns: 20% 1fr 20%;
+    grid-template-areas:
+      "header header  header"
+      "none_1 content none_2"
+      "footer footer  footer";
+  }
+}
