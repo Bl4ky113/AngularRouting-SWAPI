@@ -12,6 +12,27 @@
         SWAPI is a Project Forked from <a class="intro__link" href="https://github.com/phalt/swapi">Paul Hallett</a>.
     </p>
   </section>
+  <nav class="nav">
+    <a class="nav__link"
+      routerLink="/planets"
+      routerLinkActive="nav__link--active"
+      >
+      Galaxy's Planets
+    </a>
+    <a class="nav__link"
+      [routerLink]="['/residents', 1]"
+      routerLinkActive="nav__link--active"
+      >
+      Planet's Residents
+    </a>
+    <a class="nav__link"
+      [routerLink]="['/vehicles', 1]"
+      routerLinkActive="nav__link--active"
+      >
+      Resident's Vehicles
+    </a>
+  </nav>
+  <router-outlet></router-outlet>
 </main>
 <footer class="footer">
   <div class="footer-content">
