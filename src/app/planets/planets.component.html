@@ -8,7 +8,6 @@
     <article class="info"
       *ngFor="
         let planet of planetList;
-        let i = index
       "
       >
       <p class="info__title">{{ planet.name }}</p>
@@ -44,6 +43,10 @@
         <li class="info-list__obj">
           <span class="info-list__title">Terrain: </span>
           <span class="info-list__value">{{ planet.terrain }}</span>
+        </li>
+        <li class="info-list__obj">
+          <span class="info-list__title">Number of Residents: </span>
+          <span class="info-list__value">{{ planet.residents.length }}</span>
         </li>
       </ul>
     </article>

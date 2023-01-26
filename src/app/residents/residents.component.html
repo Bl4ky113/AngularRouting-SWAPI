@@ -1,1 +1,51 @@
-<p>residents works!</p>
+<section class="slideshow">
+  <button class="slideshow__btn slideshow__btn--left"
+    (click)="changeSlideShowIndex(-1)"
+    >
+    &#10094;
+  </button>
+  <section class="info-wrapper">
+    <article class="info"
+      *ngFor="
+        let person of personList;
+      "
+      >
+      <p class="info__title">{{ person.name }}</p>
+      <ul class="info-list">
+        <li class="info-list__obj">
+          <span class="info-list__title">Birth Date: </span>
+          <span class="info-list__value">{{ person.birth_date }}</span>
+        </li>
+        <li class="info-list__obj">
+          <span class="info-list__title">Eye Color: </span>
+          <span class="info-list__value">{{ person.eye_color }}</span>
+        </li>
+        <li class="info-list__obj">
+          <span class="info-list__title">Gender: </span>
+          <span class="info-list__value">{{ person.gender }}</span>
+        </li>
+        <li class="info-list__obj">
+          <span class="info-list__title">Hair Color: </span>
+          <span class="info-list__value">{{ person.hair_color }}</span>
+        </li>
+        <li class="info-list__obj">
+          <span class="info-list__title">Height: </span>
+          <span class="info-list__value">{{ person.height }}</span>
+        </li>
+        <li class="info-list__obj">
+          <span class="info-list__title">Mass: </span>
+          <span class="info-list__value">{{ person.mass }}</span>
+        </li>
+        <li class="info-list__obj">
+          <span class="info-list__title">Skin Color: </span>
+          <span class="info-list__value">{{ person.skin_color }}</span>
+        </li>
+      </ul>
+    </article>
+  </section>
+  <button class="slideshow__btn slideshow__btn--right"
+    (click)="changeSlideShowIndex(1)"
+    >
+    &#10095;
+  </button>
+</section>

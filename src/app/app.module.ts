@@ -22,8 +22,8 @@ import { VehiclesComponent } from './vehicles/vehicles.component';
     AppRoutingModule,
     RouterModule.forRoot([
       {path: 'planets', component: PlanetsComponent},
-      {path: 'residents/:planet_id', component: ResidentsComponent},
-      {path: 'vehicles/:resident_id', component: VehiclesComponent},
+      {path: 'residents', component: ResidentsComponent},
+      {path: 'vehicles', component: VehiclesComponent},
       {path: '', redirectTo: 'planets', pathMatch: 'full'}
     ])
   ],

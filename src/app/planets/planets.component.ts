@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SwapiService } from '../services/swapi.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { SwapiService } from '../services/swapi.service';
   styleUrls: ['./planets.component.scss']
 })
 export class PlanetsComponent implements OnInit {
+  @Output() sendCurrentPlanetUrl: EventEmitter<string> = new EventEmitter();
+
   constructor (private swapi: SwapiService) {  }
 
   planetList: Array<any> = [];
@@ -15,8 +17,6 @@ export class PlanetsComponent implements OnInit {
 
   currentIndex: number = 0;
   maxIndex: number = 0;
-
-  planetUrl: string = "";
 
   ngOnInit () {
     this.addPlanetList(1);
@@ -28,10 +28,13 @@ export class PlanetsComponent implements OnInit {
         this.planetList.push(...json.results);
 
         if (json.next === null) {
+
           this.isPlanetListComplete = true;
           this.maxIndex = this.planetList.length - 1;
+
           this.planetTagList = document.getElementsByClassName('info');
-          this.updateSlideShowIndex();
+          this.planetTagList[this.currentIndex].classList.toggle('info--show');
+          this.swapi.setCurrentPlanetUrl(this.planetList[this.currentIndex].url);
 
           return null;
         }
@@ -51,12 +54,11 @@ export class PlanetsComponent implements OnInit {
       this.currentIndex <= 0
     ) { return; }
 
-    this.updateSlideShowIndex();
-    this.currentIndex += change;
-    this.updateSlideShowIndex();
-  }
-
-  updateSlideShowIndex () {
     this.planetTagList[this.currentIndex].classList.toggle('info--show');
+
+    this.currentIndex += change;
+
+    this.planetTagList[this.currentIndex].classList.toggle('info--show');
+    this.swapi.setCurrentPlanetUrl(this.planetList[this.currentIndex].url);
   }
 }
