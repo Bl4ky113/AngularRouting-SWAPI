@@ -1,48 +1,55 @@
 <section class="slideshow">
   <button class="slideshow__btn slideshow__btn--left"
+    (click)="changeSlideShowIndex(-1)"
     >
     &#10094;
   </button>
   <section class="info-wrapper">
-    <article class="info">
-      <p class="info__title"></p>
+    <article class="info"
+      *ngFor="
+        let planet of planetList;
+        let i = index
+      "
+      >
+      <p class="info__title">{{ planet.name }}</p>
       <ul class="info-list">
         <li class="info-list__obj">
-          <span class="info-list__title"></span>
-          <span class="info-list__value"></span>
+          <span class="info-list__title">Climate: </span>
+          <span class="info-list__value">{{ planet.climate }}</span>
         </li>
         <li class="info-list__obj">
-          <span class="info-list__title"></span>
-          <span class="info-list__value"></span>
+          <span class="info-list__title">Diameter: </span>
+          <span class="info-list__value">{{ planet.diameter }}</span>
         </li>
         <li class="info-list__obj">
-          <span class="info-list__title"></span>
-          <span class="info-list__value"></span>
+          <span class="info-list__title">Gravity: </span>
+          <span class="info-list__value">{{ planet.gravity }}</span>
         </li>
         <li class="info-list__obj">
-          <span class="info-list__title"></span>
-          <span class="info-list__value"></span>
+          <span class="info-list__title">Orbital Period: </span>
+          <span class="info-list__value">{{ planet.orbital_period }}</span>
         </li>
         <li class="info-list__obj">
-          <span class="info-list__title"></span>
-          <span class="info-list__value"></span>
+          <span class="info-list__title">Population: </span>
+          <span class="info-list__value">{{ planet.population }}</span>
         </li>
         <li class="info-list__obj">
-          <span class="info-list__title"></span>
-          <span class="info-list__value"></span>
+          <span class="info-list__title">Rotation Period: </span>
+          <span class="info-list__value">{{ planet.rotation_period }}</span>
         </li>
         <li class="info-list__obj">
-          <span class="info-list__title"></span>
-          <span class="info-list__value"></span>
+          <span class="info-list__title">Surface Water: </span>
+          <span class="info-list__value">{{ planet.surface_water }}</span>
         </li>
         <li class="info-list__obj">
-          <span class="info-list__title"></span>
-          <span class="info-list__value"></span>
+          <span class="info-list__title">Terrain: </span>
+          <span class="info-list__value">{{ planet.terrain }}</span>
         </li>
       </ul>
     </article>
   </section>
   <button class="slideshow__btn slideshow__btn--right"
+    (click)="changeSlideShowIndex(1)"
     >
     &#10095;
   </button>
